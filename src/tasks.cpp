@@ -3,7 +3,7 @@
 #include "circle.h"
 
 double earthRopeGap() {
-	const double earthRadius = 6378100.0;  
+	const double earthRadius = 6378100.0;
 	Circle earth(earthRadius);
 	double newFerence = earth.getFerence() + 1.0;
 	earth.setFerence(newFerence);

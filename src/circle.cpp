@@ -1,6 +1,6 @@
 // Copyright 2022 UNN-CS
 #include "circle.h"
-#include <cmath>  
+#include <cmath>
 
 Circle::Circle(double radius) {
 	setRadius(radius);
@@ -8,7 +8,7 @@ Circle::Circle(double radius) {
 
 void Circle::setRadius(double radius) {
 	radius_ = radius;
-	double absRadius = std::fabs(radius);  
+	double absRadius = std::fabs(radius);
 	ference_ = 2 * PI * absRadius;
 	area_ = PI * absRadius * absRadius;
 }
