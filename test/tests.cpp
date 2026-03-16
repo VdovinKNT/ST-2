@@ -140,6 +140,26 @@ TEST(CircleTest, MultipleSets) {
     c.setArea(PI * 16.0);
     EXPECT_NEAR(c.getRadius(), 4.0, EPS);
 }
+TEST(CircleTest, SetFerenceLarge) {
+    Circle c(1.0);
+    double largeFerence = 1e12;
+    c.setFerence(largeFerence);
+    double expectedRadius = largeFerence / (2 * PI);
+    EXPECT_NEAR(c.getRadius(), expectedRadius, expectedRadius * EPS);
+    EXPECT_NEAR(c.getFerence(), largeFerence, largeFerence * EPS);
+    EXPECT_NEAR(c.getArea(), PI * expectedRadius * expectedRadius,
+        PI * expectedRadius * expectedRadius * EPS);
+}
+
+TEST(CircleTest, InvariantAfterChanges) {
+    Circle c(5.0);
+    c.setArea(100.0);
+    c.setFerence(50.0);
+    c.setRadius(7.0);
+    c.setArea(200.0);
+    EXPECT_NEAR(c.getFerence(), 2 * PI * std::fabs(c.getRadius()), EPS);
+    EXPECT_NEAR(c.getArea(), PI * std::fabs(c.getRadius()) * std::fabs(c.getRadius()), EPS);
+}
 
 
 TEST(TasksTest, EarthRopeGap) {
