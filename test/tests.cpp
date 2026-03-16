@@ -158,7 +158,8 @@ TEST(CircleTest, InvariantAfterChanges) {
     c.setRadius(7.0);
     c.setArea(200.0);
     EXPECT_NEAR(c.getFerence(), 2 * PI * std::fabs(c.getRadius()), EPS);
-    EXPECT_NEAR(c.getArea(), PI * std::fabs(c.getRadius()) * std::fabs(c.getRadius()), EPS);
+    EXPECT_NEAR(c.getArea(), PI * std::fabs(c.getRadius()) *
+        std::fabs(c.getRadius()), EPS);
 }
 
 
